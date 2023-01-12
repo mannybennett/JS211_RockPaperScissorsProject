@@ -16,23 +16,31 @@ const rockPaperScissors = (hand1, hand2) => {
 
     const trimmedHand1 = hand1.trim().toLowerCase()
     const trimmedHand2 = hand2.trim().toLowerCase()
+    const handsArr = ['rock', 'paper', 'scissors']
 
-    if (trimmedHand1 === 'rock' && trimmedHand2 === 'scissors') {
+    if (trimmedHand1.includes(handsArr[0]) && trimmedHand2.includes(handsArr[2])) {
       return "Hand one wins!"
-    } else if (trimmedHand1 === 'rock' && trimmedHand2 === 'paper') {
+    } else if (trimmedHand1.includes(handsArr[0]) && trimmedHand2.includes(handsArr[1])) {
       return "Hand two wins!"
-    } else if (trimmedHand1 === 'paper' && trimmedHand2 === 'scissors') {
+    } else if (trimmedHand1.includes(handsArr[1]) && trimmedHand2.includes(handsArr[2])) {
       return "Hand two wins!"
-    } else if (trimmedHand2 === 'paper' && trimmedHand1 === 'scissors') {
+    } else if (trimmedHand2.includes(handsArr[1]) && trimmedHand1.includes(handsArr[2])) {
       return "Hand one wins!"
-    } else if (trimmedHand2 === 'rock' && trimmedHand1 === 'scissors') {
+    } else if (trimmedHand2.includes(handsArr[0]) && trimmedHand1.includes(handsArr[2])) {
       return "Hand two wins!"
-    } else if (trimmedHand2 === 'rock' && trimmedHand1 === 'paper') {
+    } else if (trimmedHand2.includes(handsArr[0]) && trimmedHand1.includes(handsArr[1])) {
       return "Hand one wins!"
-    } else {
+    } else if (trimmedHand1 === '' || trimmedHand2 === '') {
+      return "Please enter a valid hand."
+    } else if (trimmedHand1 === trimmedHand2) {
       return "It's a tie!"
+    } else {
+      for (let i=0; i <= handsArr.length; i++) {
+        if (!trimmedHand1.includes(handsArr[i]) || !trimmedHand2.includes(handsArr[i])) {
+          return "Please enter a valid hand."
+        }
+      }
     }
-    
 }
 
 // the first function called in the program to get an input from the user
